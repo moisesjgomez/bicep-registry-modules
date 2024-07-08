@@ -77,6 +77,9 @@ module testDeployment '../../../main.bicep' = [
           iconPath: 'C:\\Windows\\System32\\notepad.exe'
           name: 'notepad'
           showInPortal: true
+          applicationType: 'InBuilt'
+          msixPackageApplicationId: 'myApp'
+          msixPackageFamilyName: 'myAppFamilyName'
         }
         {
           filePath: 'C:\\Program Files\\Windows NT\\Accessories\\wordpad.exe'

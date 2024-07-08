@@ -109,6 +109,7 @@ module appGroup_applications 'application/main.bicep' = [
     params: {
       name: application.name
       applicationGroupName: appGroup.name
+      applicationType: contains(application, 'applicationType') ? application.applicationType : 'InBuilt'
       description: contains(application, 'description') ? application.description : ''
       friendlyName: contains(application, 'friendlyName') ? application.friendlyName : appGroup.name
       filePath: application.filePath
@@ -117,6 +118,10 @@ module appGroup_applications 'application/main.bicep' = [
       showInPortal: contains(application, 'showInPortal') ? application.showInPortal : false
       iconPath: contains(application, 'iconPath') ? application.iconPath : application.filePath
       iconIndex: contains(application, 'iconIndex') ? application.iconIndex : 0
+      msixPackageApplicationId: contains(application, 'msixPackageApplicationId')
+        ? application.msixPackageApplicationId
+        : ''
+      msixPackageFamilyName: contains(application, 'msixPackageFamilyName') ? application.msixPackageFamilyName : ''
     }
   }
 ]
