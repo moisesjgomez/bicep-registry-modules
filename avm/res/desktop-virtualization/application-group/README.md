@@ -109,6 +109,7 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
     // Non-required parameters
     applications: [
       {
+        applicationType: 'InBuilt'
         commandLineArguments: ''
         commandLineSetting: 'DoNotAllow'
         description: 'Notepad by ARM template'
@@ -116,6 +117,8 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
         friendlyName: 'Notepad'
         iconIndex: 0
         iconPath: 'C:\\Windows\\System32\\notepad.exe'
+        msixPackageApplicationId: 'myApp'
+        msixPackageFamilyName: 'myAppFamilyName'
         name: 'notepad'
         showInPortal: true
       }
@@ -197,6 +200,7 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
     "applications": {
       "value": [
         {
+          "applicationType": "InBuilt",
           "commandLineArguments": "",
           "commandLineSetting": "DoNotAllow",
           "description": "Notepad by ARM template",
@@ -204,6 +208,8 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
           "friendlyName": "Notepad",
           "iconIndex": 0,
           "iconPath": "C:\\Windows\\System32\\notepad.exe",
+          "msixPackageApplicationId": "myApp",
+          "msixPackageFamilyName": "myAppFamilyName",
           "name": "notepad",
           "showInPortal": true
         },
