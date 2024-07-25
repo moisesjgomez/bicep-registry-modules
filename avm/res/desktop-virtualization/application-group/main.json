@@ -5,8 +5,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.28.1.47646",
-      "templateHash": "2622119546310738566"
+      "version": "0.24.24.22086",
+      "templateHash": "9577826187659931814"
     },
     "name": "Azure Virtual Desktop Application Group",
     "description": "This module deploys an Azure Virtual Desktop Application Group.",
@@ -340,7 +340,7 @@
     },
     "appGroup": {
       "type": "Microsoft.DesktopVirtualization/applicationGroups",
-      "apiVersion": "2023-09-05",
+      "apiVersion": "2024-04-03",
       "name": "[parameters('name')]",
       "location": "[parameters('location')]",
       "tags": "[parameters('tags')]",
@@ -462,8 +462,8 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.28.1.47646",
-              "templateHash": "12975791081078655162"
+              "version": "0.24.24.22086",
+              "templateHash": "6560011627299908456"
             },
             "name": "Azure Virtual Desktop Application Group Application",
             "description": "This module deploys an Azure Virtual Desktop Application Group Application.",
@@ -644,7 +644,7 @@
       "metadata": {
         "description": "The location of the scaling plan."
       },
-      "value": "[reference('appGroup', '2023-09-05', 'full').location]"
+      "value": "[reference('appGroup', '2024-04-03', 'full').location]"
     }
   }
 }
