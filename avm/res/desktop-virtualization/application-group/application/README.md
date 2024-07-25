@@ -36,11 +36,14 @@ This module deploys an Azure Virtual Desktop Application Group Application.
 
 | Parameter | Type | Description |
 | :-- | :-- | :-- |
+| [`applicationType`](#parameter-applicationtype) | string | Type of Application. Possible values include: "InBuilt", "MsixApplication". |
 | [`commandLineArguments`](#parameter-commandlinearguments) | string | Command-Line Arguments for the Application. |
 | [`commandLineSetting`](#parameter-commandlinesetting) | string | Specifies whether this published Application can be launched with command-line arguments provided by the client, command-line arguments specified at publish time, or no command-line arguments at all. |
 | [`description`](#parameter-description) | string | Description of the Application. |
 | [`iconIndex`](#parameter-iconindex) | int | Index of the icon. |
 | [`iconPath`](#parameter-iconpath) | string | Path to icon. |
+| [`msixPackageApplicationId`](#parameter-msixpackageapplicationid) | string | The Application ID of the MSIX package. |
+| [`msixPackageFamilyName`](#parameter-msixpackagefamilyname) | string | The Package Family Name of the MSIX package. |
 | [`showInPortal`](#parameter-showinportal) | bool | Specifies whether to show the RemoteApp program in the RD Web Access server. |
 
 ### Parameter: `filePath`
@@ -70,6 +73,21 @@ The name of the parent Application Group to create the application(s) in. Requir
 
 - Required: Yes
 - Type: string
+
+### Parameter: `applicationType`
+
+Type of Application. Possible values include: "InBuilt", "MsixApplication".
+
+- Required: No
+- Type: string
+- Default: `'InBuilt'`
+- Allowed:
+  ```Bicep
+  [
+    'InBuilt'
+    'MsixApplication'
+  ]
+  ```
 
 ### Parameter: `commandLineArguments`
 
@@ -114,6 +132,22 @@ Index of the icon.
 ### Parameter: `iconPath`
 
 Path to icon.
+
+- Required: No
+- Type: string
+- Default: `''`
+
+### Parameter: `msixPackageApplicationId`
+
+The Application ID of the MSIX package.
+
+- Required: No
+- Type: string
+- Default: `''`
+
+### Parameter: `msixPackageFamilyName`
+
+The Package Family Name of the MSIX package.
 
 - Required: No
 - Type: string

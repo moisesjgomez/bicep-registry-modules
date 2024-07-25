@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.26.54.24096",
-      "templateHash": "11159515031632739969"
+      "version": "0.24.24.22086",
+      "templateHash": "14051090791965480487"
     },
     "name": "Azure Virtual Desktop Application Group Application",
     "description": "This module deploys an Azure Virtual Desktop Application Group Application.",
@@ -41,6 +41,17 @@
       "type": "string",
       "metadata": {
         "description": "Required. Specifies a path for the executable file for the Application."
+      }
+    },
+    "applicationType": {
+      "type": "string",
+      "defaultValue": "InBuilt",
+      "allowedValues": [
+        "InBuilt",
+        "MsixApplication"
+      ],
+      "metadata": {
+        "description": "Optional. Type of Application. Possible values include: \"InBuilt\", \"MsixApplication\"."
       }
     },
     "commandLineSetting": {
@@ -82,6 +93,20 @@
       "metadata": {
         "description": "Optional. Index of the icon."
       }
+    },
+    "msixPackageApplicationId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Optional. The Application ID of the MSIX package."
+      }
+    },
+    "msixPackageFamilyName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Optional. The Package Family Name of the MSIX package."
+      }
     }
   },
   "resources": [
@@ -93,11 +118,14 @@
         "description": "[parameters('description')]",
         "friendlyName": "[parameters('friendlyName')]",
         "filePath": "[parameters('filePath')]",
+        "applicationType": "[parameters('applicationType')]",
         "commandLineSetting": "[parameters('commandLineSetting')]",
         "commandLineArguments": "[parameters('commandLineArguments')]",
         "showInPortal": "[parameters('showInPortal')]",
         "iconPath": "[parameters('iconPath')]",
-        "iconIndex": "[parameters('iconIndex')]"
+        "iconIndex": "[parameters('iconIndex')]",
+        "msixPackageApplicationId": "[parameters('msixPackageApplicationId')]",
+        "msixPackageFamilyName": "[parameters('msixPackageFamilyName')]"
       }
     }
   ],
