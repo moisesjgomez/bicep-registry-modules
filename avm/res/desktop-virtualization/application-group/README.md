@@ -127,11 +127,10 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
       {
         applicationType: 'MsixApplication'
         description: 'This is a sample MSIX application for testing purposes.'
-        filePath: 'C:\\Windows\\System32\\sample.exe'
         friendlyName: 'Sample MSIX App'
         iconIndex: 0
-        msixPackageApplicationId: 'sampleappId'
-        msixPackageFamilyName: 'SampleAp'
+        msixPackageApplicationId: 'sampleappId.apppackage_2384gha'
+        msixPackageFamilyName: 'appPackage'
         name: 'sampleApp'
         showInPortal: true
       }
@@ -226,11 +225,10 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
         {
           "applicationType": "MsixApplication",
           "description": "This is a sample MSIX application for testing purposes.",
-          "filePath": "C:\\Windows\\System32\\sample.exe",
           "friendlyName": "Sample MSIX App",
           "iconIndex": 0,
-          "msixPackageApplicationId": "sampleappId",
-          "msixPackageFamilyName": "SampleAp",
+          "msixPackageApplicationId": "sampleappId.apppackage_2384gha",
+          "msixPackageFamilyName": "appPackage",
           "name": "sampleApp",
           "showInPortal": true
         }

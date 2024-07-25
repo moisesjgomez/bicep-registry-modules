@@ -84,13 +84,12 @@ module testDeployment '../../../main.bicep' = [
           name: 'wordpad'
         }
         {
-          msixPackageApplicationId: 'sampleappId'
-          msixPackageFamilyName: 'SampleAp'
+          msixPackageApplicationId: 'sampleappId.apppackage_2384gha'
+          msixPackageFamilyName: 'appPackage'
           applicationType: 'MsixApplication'
           name: 'sampleApp'
           friendlyName: 'Sample MSIX App'
           description: 'This is a sample MSIX application for testing purposes.'
-          filePath: 'C:\\Windows\\System32\\sample.exe'
           iconIndex: 0
           showInPortal: true
         }
