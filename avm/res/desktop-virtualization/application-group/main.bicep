@@ -109,19 +109,19 @@ module appGroup_applications 'application/main.bicep' = [
     params: {
       name: application.name
       applicationGroupName: appGroup.name
-      description: contains(application, 'description') ? application.description : ''
-      friendlyName: contains(application, 'friendlyName') ? application.friendlyName : appGroup.name
+      description: application.?description ?? ''
+      friendlyName: application.?friendlyName ?? appGroup.name
       filePath: application.filePath
-      applicationType: contains(application, 'applicationType') ? application.applicationType : 'InBuilt'
-      commandLineSetting: contains(application, 'commandLineSetting') ? application.commandLineSetting : 'DoNotAllow'
-      commandLineArguments: contains(application, 'commandLineArguments') ? application.commandLineArguments : ''
-      showInPortal: contains(application, 'showInPortal') ? application.showInPortal : false
-      iconPath: contains(application, 'iconPath') ? application.iconPath : application.filePath
-      iconIndex: contains(application, 'iconIndex') ? application.iconIndex : 0
-      msixPackageApplicationId: contains(application, 'msixPackageApplicationId')
-        ? application.msixPackageApplicationId
+      applicationType: application.?applicationType ?? 'InBuilt'
+      commandLineSetting: application.?commandLineSetting ?? 'DoNotAllow'
+      commandLineArguments: application.?commandLineArguments ?? ''
+      showInPortal: application.?showInPortal ?? false
+      iconPath: application.?iconPath ?? application.filePath
+      iconIndex: application.?iconIndex ?? 0
+      msixPackageApplicationId: application.?applicationType != 'InBuilt'
+        ? (application.?msixPackageApplicationId ?? '')
         : ''
-      msixPackageFamilyName: contains(application, 'msixPackageFamilyName') ? application.msixPackageFamilyName : ''
+      msixPackageFamilyName: application.?applicationType != 'InBuilt' ? (application.?msixPackageFamilyName ?? '') : ''
     }
   }
 ]

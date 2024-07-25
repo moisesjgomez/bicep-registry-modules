@@ -6,7 +6,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.24.24.22086",
-      "templateHash": "16488342087802516071"
+      "templateHash": "14381093773062642232"
     },
     "name": "Azure Virtual Desktop Application Group",
     "description": "This module deploys an Azure Virtual Desktop Application Group.",
@@ -442,19 +442,35 @@
           "applicationGroupName": {
             "value": "[parameters('name')]"
           },
-          "description": "[if(contains(parameters('applications')[copyIndex()], 'description'), createObject('value', parameters('applications')[copyIndex()].description), createObject('value', ''))]",
-          "friendlyName": "[if(contains(parameters('applications')[copyIndex()], 'friendlyName'), createObject('value', parameters('applications')[copyIndex()].friendlyName), createObject('value', parameters('name')))]",
+          "description": {
+            "value": "[coalesce(tryGet(parameters('applications')[copyIndex()], 'description'), '')]"
+          },
+          "friendlyName": {
+            "value": "[coalesce(tryGet(parameters('applications')[copyIndex()], 'friendlyName'), parameters('name'))]"
+          },
           "filePath": {
             "value": "[parameters('applications')[copyIndex()].filePath]"
           },
-          "applicationType": "[if(contains(parameters('applications')[copyIndex()], 'applicationType'), createObject('value', parameters('applications')[copyIndex()].applicationType), createObject('value', 'InBuilt'))]",
-          "commandLineSetting": "[if(contains(parameters('applications')[copyIndex()], 'commandLineSetting'), createObject('value', parameters('applications')[copyIndex()].commandLineSetting), createObject('value', 'DoNotAllow'))]",
-          "commandLineArguments": "[if(contains(parameters('applications')[copyIndex()], 'commandLineArguments'), createObject('value', parameters('applications')[copyIndex()].commandLineArguments), createObject('value', ''))]",
-          "showInPortal": "[if(contains(parameters('applications')[copyIndex()], 'showInPortal'), createObject('value', parameters('applications')[copyIndex()].showInPortal), createObject('value', false()))]",
-          "iconPath": "[if(contains(parameters('applications')[copyIndex()], 'iconPath'), createObject('value', parameters('applications')[copyIndex()].iconPath), createObject('value', parameters('applications')[copyIndex()].filePath))]",
-          "iconIndex": "[if(contains(parameters('applications')[copyIndex()], 'iconIndex'), createObject('value', parameters('applications')[copyIndex()].iconIndex), createObject('value', 0))]",
-          "msixPackageApplicationId": "[if(contains(parameters('applications')[copyIndex()], 'msixPackageApplicationId'), createObject('value', parameters('applications')[copyIndex()].msixPackageApplicationId), createObject('value', ''))]",
-          "msixPackageFamilyName": "[if(contains(parameters('applications')[copyIndex()], 'msixPackageFamilyName'), createObject('value', parameters('applications')[copyIndex()].msixPackageFamilyName), createObject('value', ''))]"
+          "applicationType": {
+            "value": "[coalesce(tryGet(parameters('applications')[copyIndex()], 'applicationType'), 'InBuilt')]"
+          },
+          "commandLineSetting": {
+            "value": "[coalesce(tryGet(parameters('applications')[copyIndex()], 'commandLineSetting'), 'DoNotAllow')]"
+          },
+          "commandLineArguments": {
+            "value": "[coalesce(tryGet(parameters('applications')[copyIndex()], 'commandLineArguments'), '')]"
+          },
+          "showInPortal": {
+            "value": "[coalesce(tryGet(parameters('applications')[copyIndex()], 'showInPortal'), false())]"
+          },
+          "iconPath": {
+            "value": "[coalesce(tryGet(parameters('applications')[copyIndex()], 'iconPath'), parameters('applications')[copyIndex()].filePath)]"
+          },
+          "iconIndex": {
+            "value": "[coalesce(tryGet(parameters('applications')[copyIndex()], 'iconIndex'), 0)]"
+          },
+          "msixPackageApplicationId": "[if(not(equals(tryGet(parameters('applications')[copyIndex()], 'applicationType'), 'InBuilt')), createObject('value', coalesce(tryGet(parameters('applications')[copyIndex()], 'msixPackageApplicationId'), '')), createObject('value', ''))]",
+          "msixPackageFamilyName": "[if(not(equals(tryGet(parameters('applications')[copyIndex()], 'applicationType'), 'InBuilt')), createObject('value', coalesce(tryGet(parameters('applications')[copyIndex()], 'msixPackageFamilyName'), '')), createObject('value', ''))]"
         },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",

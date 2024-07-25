@@ -124,6 +124,17 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
         friendlyName: 'Wordpad'
         name: 'wordpad'
       }
+      {
+        applicationType: 'MsixApplication'
+        description: 'This is a sample MSIX application for testing purposes.'
+        friendlyName: 'Sample MSIX App'
+        iconIndex: 0
+        iconPath: 'C:\\Program Files\\SampleApp\\appicon.ico'
+        msixPackageApplicationId: 'com.microsoft.sampleapp'
+        msixPackageFamilyName: 'SampleApp_8wekyb3d8bbwe'
+        name: 'sampleApp'
+        showInPortal: true
+      }
     ]
     description: 'myDescription'
     diagnosticSettings: [
@@ -211,6 +222,17 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
           "filePath": "C:\\Program Files\\Windows NT\\Accessories\\wordpad.exe",
           "friendlyName": "Wordpad",
           "name": "wordpad"
+        },
+        {
+          "applicationType": "MsixApplication",
+          "description": "This is a sample MSIX application for testing purposes.",
+          "friendlyName": "Sample MSIX App",
+          "iconIndex": 0,
+          "iconPath": "C:\\Program Files\\SampleApp\\appicon.ico",
+          "msixPackageApplicationId": "com.microsoft.sampleapp",
+          "msixPackageFamilyName": "SampleApp_8wekyb3d8bbwe",
+          "name": "sampleApp",
+          "showInPortal": true
         }
       ]
     },

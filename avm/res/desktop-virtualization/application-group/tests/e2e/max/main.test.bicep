@@ -83,6 +83,17 @@ module testDeployment '../../../main.bicep' = [
           friendlyName: 'Wordpad'
           name: 'wordpad'
         }
+        {
+          msixPackageApplicationId: 'com.microsoft.sampleapp'
+          msixPackageFamilyName: 'SampleApp_8wekyb3d8bbwe'
+          applicationType: 'MsixApplication'
+          name: 'sampleApp'
+          friendlyName: 'Sample MSIX App'
+          description: 'This is a sample MSIX application for testing purposes.'
+          iconPath: 'C:\\Program Files\\SampleApp\\appicon.ico'
+          iconIndex: 0
+          showInPortal: true
+        }
       ]
       description: 'myDescription'
       hostpoolName: nestedDependencies.outputs.hostPoolName
