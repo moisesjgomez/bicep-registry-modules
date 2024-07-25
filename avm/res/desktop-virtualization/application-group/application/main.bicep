@@ -18,6 +18,13 @@ param friendlyName string
 param filePath string
 
 @allowed([
+  'InBuilt'
+  'MsixApplication'
+])
+@sys.description('Optional. Type of Application. Possible values include: "InBuilt", "MsixApplication".')
+param applicationType string = 'InBuilt'
+
+@allowed([
   'Allow'
   'DoNotAllow'
   'Require'
@@ -37,6 +44,12 @@ param iconPath string = ''
 @sys.description('Optional. Index of the icon.')
 param iconIndex int = 0
 
+@sys.description('Optional. The Application ID of the MSIX package.')
+param msixPackageApplicationId string = ''
+
+@sys.description('Optional. The Package Family Name of the MSIX package.')
+param msixPackageFamilyName string = ''
+
 resource appGroup 'Microsoft.DesktopVirtualization/applicationGroups@2023-09-05' existing = {
   name: applicationGroupName
 }
@@ -48,11 +61,14 @@ resource application 'Microsoft.DesktopVirtualization/applicationGroups/applicat
     description: description
     friendlyName: friendlyName
     filePath: filePath
+    applicationType: applicationType
     commandLineSetting: commandLineSetting
     commandLineArguments: commandLineArguments
     showInPortal: showInPortal
     iconPath: iconPath
     iconIndex: iconIndex
+    msixPackageApplicationId: msixPackageApplicationId
+    msixPackageFamilyName: msixPackageFamilyName
   }
 }
 

@@ -112,11 +112,16 @@ module appGroup_applications 'application/main.bicep' = [
       description: contains(application, 'description') ? application.description : ''
       friendlyName: contains(application, 'friendlyName') ? application.friendlyName : appGroup.name
       filePath: application.filePath
+      applicationType: contains(application, 'applicationType') ? application.applicationType : 'InBuilt'
       commandLineSetting: contains(application, 'commandLineSetting') ? application.commandLineSetting : 'DoNotAllow'
       commandLineArguments: contains(application, 'commandLineArguments') ? application.commandLineArguments : ''
       showInPortal: contains(application, 'showInPortal') ? application.showInPortal : false
       iconPath: contains(application, 'iconPath') ? application.iconPath : application.filePath
       iconIndex: contains(application, 'iconIndex') ? application.iconIndex : 0
+      msixPackageApplicationId: contains(application, 'msixPackageApplicationId')
+        ? application.msixPackageApplicationId
+        : ''
+      msixPackageFamilyName: contains(application, 'msixPackageFamilyName') ? application.msixPackageFamilyName : ''
     }
   }
 ]
