@@ -69,12 +69,14 @@ module testDeployment '../../../main.bicep' = [
       applications: [
         // Built-in application (Notepad)
         {
+          commandLineArguments: ''
+          commandLineSetting: 'DoNotAllow'
+          description: 'Notepad by ARM template'
           filePath: 'C:\\Windows\\System32\\notepad.exe'
           friendlyName: 'Notepad'
-          name: 'notepad'
-          description: 'Notepad by ARM template'
-          iconPath: 'C:\\Windows\\System32\\notepad.exe'
           iconIndex: 0
+          iconPath: 'C:\\Windows\\System32\\notepad.exe'
+          name: 'notepad'
           showInPortal: true
         }
         // Built-in application (Wordpad)
