@@ -109,8 +109,6 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
     // Non-required parameters
     applications: [
       {
-        commandLineArguments: ''
-        commandLineSetting: 'DoNotAllow'
         description: 'Notepad by ARM template'
         filePath: 'C:\\Windows\\System32\\notepad.exe'
         friendlyName: 'Notepad'
@@ -207,8 +205,6 @@ module applicationGroup 'br/public:avm/res/desktop-virtualization/application-gr
     "applications": {
       "value": [
         {
-          "commandLineArguments": "",
-          "commandLineSetting": "DoNotAllow",
           "description": "Notepad by ARM template",
           "filePath": "C:\\Windows\\System32\\notepad.exe",
           "friendlyName": "Notepad",

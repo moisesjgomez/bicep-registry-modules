@@ -67,22 +67,23 @@ module testDeployment '../../../main.bicep' = [
       location: resourceLocation
       applicationGroupType: 'RemoteApp'
       applications: [
+        // Built-in application (Notepad)
         {
-          commandLineArguments: ''
-          commandLineSetting: 'DoNotAllow'
-          description: 'Notepad by ARM template'
           filePath: 'C:\\Windows\\System32\\notepad.exe'
           friendlyName: 'Notepad'
-          iconIndex: 0
-          iconPath: 'C:\\Windows\\System32\\notepad.exe'
           name: 'notepad'
+          description: 'Notepad by ARM template'
+          iconPath: 'C:\\Windows\\System32\\notepad.exe'
+          iconIndex: 0
           showInPortal: true
         }
+        // Built-in application (Wordpad)
         {
           filePath: 'C:\\Program Files\\Windows NT\\Accessories\\wordpad.exe'
           friendlyName: 'Wordpad'
           name: 'wordpad'
         }
+        // MSIX application
         {
           msixPackageApplicationId: 'sampleappId.apppackage_2384gha'
           msixPackageFamilyName: 'appPackage'
